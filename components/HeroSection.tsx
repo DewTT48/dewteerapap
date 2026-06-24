@@ -4,6 +4,7 @@ import CharacterStage from '@/components/CharacterStage'
 import { fadeUp, stagger } from '@/components/motion'
 import OrbitLinks from '@/components/OrbitLinks'
 import { emailUrl } from '@/data/links'
+import { assetPath } from '@/lib/asset-path'
 import type { CharacterState } from '@/data/links'
 import { motion, useReducedMotion } from 'framer-motion'
 import { CalendarCheck, Play, Sparkles } from 'lucide-react'
@@ -82,7 +83,7 @@ export default function HeroSection() {
               นัดคุย / ขอ Proposal
             </a>
             <a
-              href="#services"
+              href={assetPath('/portfolio/')}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-4 text-sm font-bold text-text shadow-soft transition hover:-translate-y-0.5 hover:border-orange/30 focus:outline-none focus:ring-2 focus:ring-orange/30"
             >
               <Play size={18} />
