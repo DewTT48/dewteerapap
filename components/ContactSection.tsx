@@ -2,6 +2,7 @@
 
 import { fadeUp } from '@/components/motion'
 import { emailUrl } from '@/data/links'
+import { assetPath } from '@/lib/asset-path'
 import { motion, useReducedMotion } from 'framer-motion'
 import { CalendarDays, Mail } from 'lucide-react'
 import Image from 'next/image'
@@ -55,7 +56,7 @@ export default function ContactSection() {
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
           <Image
-            src="/characters/dew-laptop-sit.png"
+            src={assetPath('/characters/dew-laptop-sit.png')}
             alt="Dew working on a laptop"
             fill
             sizes="(max-width: 768px) 86vw, 430px"
