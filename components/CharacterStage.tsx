@@ -1,6 +1,7 @@
 'use client'
 
 import type { CharacterState } from '@/data/links'
+import { assetPath } from '@/lib/asset-path'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -25,7 +26,7 @@ type CharacterStageProps = {
 
 export default function CharacterStage({ state }: CharacterStageProps) {
   const reduceMotion = useReducedMotion()
-  const src = characterImages[state] ?? characterImages.default
+  const src = assetPath(characterImages[state] ?? characterImages.default)
 
   return (
     <motion.div
