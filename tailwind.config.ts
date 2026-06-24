@@ -26,12 +26,12 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          'var(--font-noto-sans-thai)',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
           '"Segoe UI"',
-          '"Noto Sans Thai"',
           'sans-serif'
         ]
       }
