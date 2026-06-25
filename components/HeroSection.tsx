@@ -91,10 +91,6 @@ export default function HeroSection() {
             </a>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="mt-8 inline-flex items-center gap-2 text-sm text-muted">
-            <Sparkles size={17} className="text-orange" />
-            คลิกการ์ดรอบตัวละครเพื่อดู ecosystem งาน HR x Tech ของพี่ดิว
-          </motion.div>
         </motion.div>
 
         <div className="relative z-10 lg:col-span-8">
