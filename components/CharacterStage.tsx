@@ -1,4 +1,4 @@
-use client'
+'use client'
 
 import type { CharacterState } from '@/data/links'
 import type { PersonaMode } from '@/data/personas'
