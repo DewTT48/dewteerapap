@@ -1,4 +1,4 @@
-use client'
+'use client'
 
 import type { PersonaMode } from '@/data/personas'
 import { personaConfigs } from '@/data/personas'
