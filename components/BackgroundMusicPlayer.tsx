@@ -14,7 +14,7 @@ const tracks = [
 
 export default function BackgroundMusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const collapseTimerRef = useRef<ReturnType<typeof window.setTimeout> | null>(null)
+  const collapseTimerRef = useRef<number | null>(null)
   const [trackIndex, setTrackIndex] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
