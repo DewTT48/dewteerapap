@@ -11,6 +11,7 @@ export type PersonaConfig = {
     text: string
     className: string
   }>
+  headlineClassName: string
   description: string
   proposalSubject: string
   cssVars: CSSProperties
@@ -21,6 +22,7 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
     label: 'Plus',
     shortLabel: 'Plus',
     badge: 'Modern HR x AI Workflow Designer',
+    headlineClassName: 'text-[clamp(2.7rem,4.5vw,3.7rem)]',
     headline: [
       { text: 'HR ยุคใหม่', className: 'text-text' },
       { text: 'ต้องเข้าใจ', className: 'text-text' },
