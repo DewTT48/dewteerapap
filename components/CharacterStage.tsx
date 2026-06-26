@@ -1,32 +1,20 @@
-'use client'
+use client'
 
 import type { CharacterState } from '@/data/links'
+import type { PersonaMode } from '@/data/personas'
+import { getPersonaCharacterImage } from '@/data/personas'
 import { assetPath } from '@/lib/asset-path'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
-const characterImages: Record<CharacterState, string> = {
-  default: '/characters/dew-stand.png',
-  pointing: '/characters/dew-pointing.png',
-  thinking: '/characters/dew-thinking.png',
-  laptop: '/characters/dew-laptop-sit.png',
-  thumbsUp: '/characters/dew-thumbs-up.png',
-  wai: '/characters/dew-wai.png',
-  community: '/characters/dew-thumbs-up.png',
-  calm: '/characters/dew-thinking.png',
-  playful: '/characters/dew-pointing.png',
-  wave: '/characters/dew-wave.png',
-  heart: '/characters/dew-heart.png',
-  celebrate: '/characters/dew-celebrate.png'
-}
-
 type CharacterStageProps = {
   state: CharacterState
+  persona?: PersonaMode
 }
 
-export default function CharacterStage({ state }: CharacterStageProps) {
+export default function CharacterStage({ state, persona = 'plus' }: CharacterStageProps) {
   const reduceMotion = useReducedMotion()
-  const src = assetPath(characterImages[state] ?? characterImages.default)
+  const src = assetPath(getPersonaCharacterImage(persona, state))
 
   return (
     <motion.div
@@ -42,7 +30,7 @@ export default function CharacterStage({ state }: CharacterStageProps) {
       />
       <AnimatePresence mode="wait">
         <motion.div
-          key={src}
+          key={`${persona}-${src}`}
           initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 10 }}
           animate={reduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.98, y: -8 }}
