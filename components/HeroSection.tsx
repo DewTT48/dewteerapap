@@ -75,7 +75,7 @@ export default function HeroSection() {
             className="mt-8 max-w-[620px] text-5xl font-black leading-[1.06] text-text transition-colors duration-300 sm:text-6xl lg:text-[56px]"
           >
             {currentPersona.headline.map((line) => (
-              <span key={`${persona}-${line.text}`} className={`block text-[clamp(2.7rem,4.5vw,3.7rem)] transition-colors duration-300 ${line.className}`}>
+              <span key={`${persona}-${line.text}`} className={`block whitespace-nowrap ${currentPersona.headlineClassName} transition-colors duration-300 ${line.className}`}>
                 {line.text}
               </span>
             ))}
