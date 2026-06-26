@@ -49,18 +49,13 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
     label: 'Professional',
     shortLabel: 'Pro',
     badge: 'Corporate HR x AI Adoption Partner',
+    headlineClassName: 'text-[clamp(2.25rem,3.6vw,3.15rem)]',
     headline: [
-      { text: 'ออกแบบ', className: 'text-text text-[0.9em]' },
-      { text: 'HR Workflow', className: 'text-[#14213d] text-[0.9em]' },
-      { text: 'และ AI Adoption', className: 'mt-3 text-orange text-[0.85em]' },
-      { text: 'ให้องค์กรใช้ได้จริง', className: 'text-olive text-[0.82em]' }
+      { text: 'ออกแบบ HR Workflow', className: 'text-[#14213d]' },
+      { text: 'และ AI Adoption', className: 'mt-3 text-orange' },
+      { text: 'ให้องค์กร', className: 'text-olive' },
+      { text: 'ใช้ได้จริง', className: 'text-text' }
     ],
-    // headline: [
-    //   { text: 'ออกแบบ', className: 'text-text' },
-    //   { text: 'HR Workflow', className: 'text-[#14213d]' },
-    //   { text: 'และ AI Adoption', className: 'mt-3 text-orange' },
-    //   { text: 'ให้องค์กรใช้ได้จริง', className: 'text-olive' }
-    // ],
     description:
       'ผมช่วยผู้บริหารและทีม HR วางระบบงาน คน และ AI Adoption ให้เชื่อมกับเป้าหมายธุรกิจ ใช้งานได้จริง วัดผลได้ และขยายผลอย่างรับผิดชอบ',
     proposalSubject: 'นัดคุยเรื่อง HR Workflow และ AI Adoption',
