@@ -16,7 +16,7 @@ export default function PersonaToggle({ value, onChange }: PersonaToggleProps) {
 
   return (
     <div
-      className="inline-flex rounded-full border border-border bg-white/86 p-1 shadow-soft backdrop-blur transition-colors duration-300"
+      className="inline-flex rounded-full border border-border bg-surface/86 p-1 shadow-soft backdrop-blur transition-colors duration-300"
       aria-label="เลือกบุคลิกของเว็บ"
       role="group"
     >

@@ -12,7 +12,7 @@ export default function StatsStrip() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
-        className="grid gap-4 rounded-[28px] border border-border bg-white/88 p-5 shadow-soft backdrop-blur sm:grid-cols-2 lg:grid-cols-4"
+        className="grid gap-4 rounded-[28px] border border-border bg-surface/88 p-5 shadow-soft backdrop-blur transition-colors duration-300 sm:grid-cols-2 lg:grid-cols-4"
       >
         {stats.map((stat) => (
           <motion.div key={stat.label} variants={fadeUp} className="px-3 py-4">

@@ -20,7 +20,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         hidden: { opacity: 0, y: 22 },
         visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 90, damping: 18 } }
       }}
-      className="rounded-[24px] border border-border bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+      className="rounded-[24px] border border-border bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
     >
       <div className={`grid size-14 place-items-center rounded-2xl ${iconStyles[service.accent]}`}>
         <Icon size={26} />

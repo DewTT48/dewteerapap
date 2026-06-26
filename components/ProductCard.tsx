@@ -49,13 +49,13 @@ export default function ProductCard({ item, className = '', onHover, index }: Pr
             }
       }
       whileHover={reduceMotion ? undefined : { y: -8, scale: 1.02 }}
-      className={`group relative block w-full rounded-[20px] border border-[#EFE8DF] bg-white/88 p-4 shadow-[0_18px_42px_rgba(74,58,42,0.08)] backdrop-blur transition-shadow hover:shadow-[0_22px_52px_rgba(74,58,42,0.12)] focus:outline-none focus:ring-2 focus:ring-orange/30 sm:w-[224px] ${className}`}
+      className={`group relative block w-full rounded-[20px] border border-border bg-surface/88 p-4 shadow-soft backdrop-blur transition-shadow hover:shadow-lift focus:outline-none focus:ring-2 focus:ring-orange/30 sm:w-[224px] ${className}`}
     >
       <div className="mb-4 flex items-start justify-between gap-3">
         <div className={`grid size-12 place-items-center rounded-[18px] ring-1 ${accentStyles[item.accent]}`}>
           <Icon size={23} strokeWidth={1.8} />
         </div>
-        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#FFF4EA] text-orange/85 transition group-hover:translate-x-1 group-hover:text-orange">
+        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-orange/10 text-orange/85 transition group-hover:translate-x-1 group-hover:text-orange">
           <ArrowUpRight size={16} strokeWidth={1.8} />
         </span>
       </div>

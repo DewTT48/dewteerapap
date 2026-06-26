@@ -34,6 +34,8 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
       'ผมช่วยองค์กรและทีม HR ออกแบบระบบงานและการใช้ AI ให้ทำงาน smart ขึ้น เร็วขึ้น และตรวจสอบได้ เพื่อให้ HR เป็นพาร์ทเนอร์ที่ธุรกิจและคนทำงานไว้วางใจ',
     proposalSubject: 'นัดคุย / ขอ Proposal',
     cssVars: {
+      '--bg': '#fafaf8',
+      '--surface': '#ffffff',
       '--surface-soft': '#fff7ef',
       '--text': '#1e2430',
       '--muted': '#5d6470',
@@ -60,6 +62,8 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
       'ผมช่วยผู้บริหารและทีม HR วางระบบงาน คน และ AI Adoption ให้เชื่อมกับเป้าหมายธุรกิจ ใช้งานได้จริง วัดผลได้ และขยายผลอย่างรับผิดชอบ',
     proposalSubject: 'นัดคุยเรื่อง HR Workflow และ AI Adoption',
     cssVars: {
+      '--bg': '#f6f7f9',
+      '--surface': '#ffffff',
       '--surface-soft': '#f3f5f7',
       '--text': '#172033',
       '--muted': '#4f5b6c',

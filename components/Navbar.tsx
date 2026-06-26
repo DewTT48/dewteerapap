@@ -36,7 +36,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.label}
-                  className="grid size-11 place-items-center rounded-full border border-border bg-white/80 text-muted shadow-soft backdrop-blur transition hover:-translate-y-0.5 hover:text-orange focus:outline-none focus:ring-2 focus:ring-orange/30"
+                  className="grid size-11 place-items-center rounded-full border border-border bg-surface/80 text-muted shadow-soft backdrop-blur transition hover:-translate-y-0.5 hover:text-orange focus:outline-none focus:ring-2 focus:ring-orange/30"
                 >
                   <Icon size={19} />
                 </a>

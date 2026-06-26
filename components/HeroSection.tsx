@@ -22,9 +22,13 @@ const idleCharacterStates: CharacterState[] = [
   'wave'
 ]
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  persona: PersonaMode
+  onPersonaChange: (persona: PersonaMode) => void
+}
+
+export default function HeroSection({ persona, onPersonaChange }: HeroSectionProps) {
   const reduceMotion = useReducedMotion()
-  const [persona, setPersona] = useState<PersonaMode>('plus')
   const [hoverState, setHoverState] = useState<CharacterState | null>(null)
   const [idleIndex, setIdleIndex] = useState(0)
   const currentPersona = personaConfigs[persona]
@@ -47,7 +51,6 @@ export default function HeroSection() {
   return (
     <section
       data-persona={persona}
-      style={currentPersona.cssVars}
       className="relative mx-auto max-w-7xl px-5 pb-24 pt-16 transition-colors duration-300 sm:pb-32 lg:min-h-[820px] lg:px-8 lg:pb-24 lg:pt-20"
     >
       <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-4">
@@ -66,7 +69,7 @@ export default function HeroSection() {
               {currentPersona.badge}
             </motion.div>
             <motion.div variants={fadeUp}>
-              <PersonaToggle value={persona} onChange={setPersona} />
+              <PersonaToggle value={persona} onChange={onPersonaChange} />
             </motion.div>
           </div>
 
@@ -97,7 +100,7 @@ export default function HeroSection() {
             </a>
             <Link
               href="/portfolio/"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-4 text-sm font-bold text-text shadow-soft transition hover:-translate-y-0.5 hover:border-orange/30 focus:outline-none focus:ring-2 focus:ring-orange/30"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-6 py-4 text-sm font-bold text-text shadow-soft transition hover:-translate-y-0.5 hover:border-orange/30 focus:outline-none focus:ring-2 focus:ring-orange/30"
             >
               <Play size={18} />
               ดู Portfolio
