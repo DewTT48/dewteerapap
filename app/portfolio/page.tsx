@@ -12,6 +12,7 @@ import {
 import { emailUrl } from '@/data/links'
 import { assetPath } from '@/lib/asset-path'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -43,13 +44,13 @@ export default function PortfolioPage() {
 
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-12 lg:px-8 lg:py-20">
         <div className="lg:col-span-7">
-          <a
-            href={assetPath('/')}
+          <Link
+            href="/"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-muted shadow-soft transition hover:-translate-y-0.5 hover:text-orange"
           >
             <ArrowLeft size={17} />
             กลับหน้าแรก
-          </a>
+          </Link>
           <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-orange">{profileHero.label}</p>
           <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[1.08] text-text sm:text-6xl lg:text-[68px]">
             {profileHero.title}
