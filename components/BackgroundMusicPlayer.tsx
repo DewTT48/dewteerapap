@@ -13,6 +13,7 @@ export default function BackgroundMusicPlayer() {
   const [volume, setVolume] = useState(DEFAULT_VOLUME)
   const [needsGesture, setNeedsGesture] = useState(false)
   const [isReady, setIsReady] = useState(false)
+  const [hasAudio, setHasAudio] = useState(true)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -47,6 +48,8 @@ export default function BackgroundMusicPlayer() {
     audio.muted = isMuted
   }, [isMuted])
 
+  if (!hasAudio) return null
+
   const togglePlay = async () => {
     const audio = audioRef.current
     if (!audio) return
@@ -79,7 +82,11 @@ export default function BackgroundMusicPlayer() {
         src={assetPath('/audio/background.mp3')}
         loop
         preload="auto"
-        onCanPlay={() => setIsReady(true)}
+        onCanPlay={() => {
+          setIsReady(true)
+          setHasAudio(true)
+        }}
+        onError={() => setHasAudio(false)}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       />
