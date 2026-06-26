@@ -1,4 +1,4 @@
-use client'
+'use client'
 
 import { Music2, Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
