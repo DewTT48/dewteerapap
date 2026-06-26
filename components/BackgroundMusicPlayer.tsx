@@ -1,6 +1,6 @@
 'use client'
 
-import { Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react'
+import { Music2, Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { assetPath } from '@/lib/asset-path'
 
@@ -175,18 +175,17 @@ export default function BackgroundMusicPlayer() {
 
       <div
         className={`flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-white/92 p-1.5 text-slate-900 shadow-[0_10px_28px_rgba(31,41,55,0.14)] backdrop-blur-md transition-all duration-200 ${
-          isExpanded ? 'w-[214px]' : 'w-[74px]'
+          isExpanded ? 'w-[188px]' : 'w-11'
         }`}
       >
         <button
           type="button"
           onClick={toggleExpanded}
-          className="flex h-8 w-[62px] shrink-0 items-center justify-center gap-1.5 rounded-full bg-orange-500 px-2 text-white shadow-[0_7px_16px_rgba(249,115,22,0.24)] transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange-200 bg-white text-slate-950 shadow-[0_7px_16px_rgba(249,115,22,0.18)] transition hover:border-orange-300 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-300"
           aria-label={isExpanded ? 'ย่อแผงเพลง' : 'เปิดแผงเพลง'}
           title={isExpanded ? 'ย่อแผงเพลง' : needsGesture ? 'เปิดเพลง' : 'เพลงพื้นหลัง'}
         >
-          <Volume2 className="h-3.5 w-3.5" />
-          <span className="text-[11px] font-bold leading-none">เพลง</span>
+          <Music2 className="h-4 w-4 stroke-[2.4]" />
         </button>
 
         <div
