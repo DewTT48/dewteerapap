@@ -6,11 +6,11 @@ import OrbitLinks from '@/components/OrbitLinks'
 import PersonaToggle from '@/components/PersonaToggle'
 import { emailUrl } from '@/data/links'
 import { personaConfigs } from '@/data/personas'
-import { assetPath } from '@/lib/asset-path'
 import type { CharacterState } from '@/data/links'
 import type { PersonaMode } from '@/data/personas'
 import { motion, useReducedMotion } from 'framer-motion'
 import { CalendarCheck, Play } from 'lucide-react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const idleCharacterStates: CharacterState[] = [
@@ -95,13 +95,13 @@ export default function HeroSection() {
               <CalendarCheck size={18} />
               นัดคุย / ขอ Proposal
             </a>
-            <a
-              href={assetPath('/portfolio/')}
+            <Link
+              href="/portfolio/"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-4 text-sm font-bold text-text shadow-soft transition hover:-translate-y-0.5 hover:border-orange/30 focus:outline-none focus:ring-2 focus:ring-orange/30"
             >
               <Play size={18} />
               ดู Portfolio
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 
