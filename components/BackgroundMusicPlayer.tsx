@@ -110,7 +110,7 @@ export default function BackgroundMusicPlayer() {
     setTrackIndex(safeTrackIndex)
     setVolume(stored?.volume ?? DEFAULT_VOLUME)
     setIsMuted(stored?.muted ?? false)
-    userPausedRef.current = stored?.userPaused ?? false
+    userPausedRef.current = false
   }, [])
 
   useEffect(() => {
