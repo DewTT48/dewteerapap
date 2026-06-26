@@ -1,4 +1,4 @@
-'use client'
+use client'
 
 import { Music2, Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
@@ -6,15 +6,46 @@ import { assetPath } from '@/lib/asset-path'
 
 const DEFAULT_VOLUME = 0.4
 const COLLAPSE_DELAY = 4200
+const STORAGE_KEY = 'dew-background-music'
 const tracks = [
   '/audio/funk-af-everet-almond.mp3',
   '/audio/ready-for-freddy-tracktribe.mp3',
   '/audio/hip-bone-quincas-moreira.mp3'
 ]
 
+type StoredMusicState = {
+  trackIndex: number
+  currentTime: number
+  volume: number
+  muted: boolean
+  userPaused: boolean
+}
+
+const randomTrackIndex = () => Math.floor(Math.random() * tracks.length)
+
+const getNextRandomTrackIndex = (current: number) => {
+  if (tracks.length <= 1) return 0
+  let next = randomTrackIndex()
+  while (next === current) next = randomTrackIndex()
+  return next
+}
+
+const readStoredState = (): StoredMusicState | null => {
+  if (typeof window === 'undefined') return null
+
+  try {
+    const raw = window.sessionStorage.getItem(STORAGE_KEY)
+    return raw ? (JSON.parse(raw) as StoredMusicState) : null
+  } catch {
+    return null
+  }
+}
+
 export default function BackgroundMusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const collapseTimerRef = useRef<number | null>(null)
+  const userPausedRef = useRef(false)
+  const restoredTimeRef = useRef(false)
   const [trackIndex, setTrackIndex] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -22,6 +53,24 @@ export default function BackgroundMusicPlayer() {
   const [volume, setVolume] = useState(DEFAULT_VOLUME)
   const [needsGesture, setNeedsGesture] = useState(false)
   const [hasAudio, setHasAudio] = useState(true)
+
+  const saveState = (overrides: Partial<StoredMusicState> = {}) => {
+    const audio = audioRef.current
+    const nextState: StoredMusicState = {
+      trackIndex,
+      currentTime: audio?.currentTime ?? 0,
+      volume,
+      muted: isMuted,
+      userPaused: userPausedRef.current,
+      ...overrides
+    }
+
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(nextState))
+    } catch {
+      // Ignore storage failures; controls should still work normally.
+    }
+  }
 
   const clearCollapseTimer = () => {
     if (!collapseTimerRef.current) return
@@ -34,14 +83,17 @@ export default function BackgroundMusicPlayer() {
     collapseTimerRef.current = window.setTimeout(() => setIsExpanded(false), COLLAPSE_DELAY)
   }
 
-  const attemptPlay = async () => {
+  const attemptPlay = async ({ userInitiated = false } = {}) => {
     const audio = audioRef.current
     if (!audio) return false
+    if (userPausedRef.current && !userInitiated) return false
 
     try {
       await audio.play()
+      userPausedRef.current = false
       setIsPlaying(true)
       setNeedsGesture(false)
+      saveState({ userPaused: false, currentTime: audio.currentTime })
       return true
     } catch {
       setIsPlaying(false)
@@ -51,12 +103,26 @@ export default function BackgroundMusicPlayer() {
   }
 
   useEffect(() => {
+    const stored = readStoredState()
+    const initialTrackIndex = stored?.trackIndex != null ? stored.trackIndex : randomTrackIndex()
+    const safeTrackIndex = initialTrackIndex >= 0 && initialTrackIndex < tracks.length ? initialTrackIndex : randomTrackIndex()
+
+    setTrackIndex(safeTrackIndex)
+    setVolume(stored?.volume ?? DEFAULT_VOLUME)
+    setIsMuted(stored?.muted ?? false)
+    userPausedRef.current = stored?.userPaused ?? false
+  }, [])
+
+  useEffect(() => {
     const audio = audioRef.current
     if (!audio) return undefined
 
-    audio.volume = DEFAULT_VOLUME
-    audio.muted = false
-    attemptPlay()
+    audio.volume = volume
+    audio.muted = isMuted
+
+    if (!userPausedRef.current) {
+      attemptPlay()
+    }
 
     const unlockAudio = () => {
       attemptPlay().then((played) => {
@@ -76,6 +142,7 @@ export default function BackgroundMusicPlayer() {
 
     return () => {
       clearCollapseTimer()
+      saveState()
       window.removeEventListener('pointerdown', unlockAudio)
       window.removeEventListener('mousemove', unlockAudio)
       window.removeEventListener('wheel', unlockAudio)
@@ -83,27 +150,26 @@ export default function BackgroundMusicPlayer() {
       window.removeEventListener('keydown', unlockAudio)
       window.removeEventListener('scroll', unlockAudio)
     }
-  }, [])
+  }, [trackIndex])
 
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
     audio.volume = volume
+    saveState({ volume })
   }, [volume])
 
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
     audio.muted = isMuted
+    saveState({ muted: isMuted })
   }, [isMuted])
 
   useEffect(() => {
-    const audio = audioRef.current
-    if (!audio || !isPlaying) return
-
-    audio.load()
-    audio.play().catch(() => setNeedsGesture(true))
-  }, [trackIndex, isPlaying])
+    const timer = window.setInterval(() => saveState(), 1200)
+    return () => window.clearInterval(timer)
+  })
 
   if (!hasAudio) return null
 
@@ -128,10 +194,12 @@ export default function BackgroundMusicPlayer() {
     expandPlayer()
 
     if (audio.paused) {
-      await attemptPlay()
+      await attemptPlay({ userInitiated: true })
     } else {
+      userPausedRef.current = true
       audio.pause()
       setIsPlaying(false)
+      saveState({ userPaused: true, currentTime: audio.currentTime })
     }
   }
 
@@ -141,13 +209,26 @@ export default function BackgroundMusicPlayer() {
   }
 
   const playNextTrack = () => {
-    setTrackIndex((current) => (current + 1) % tracks.length)
+    const nextTrackIndex = getNextRandomTrackIndex(trackIndex)
+    restoredTimeRef.current = false
+    setTrackIndex(nextTrackIndex)
+    saveState({ trackIndex: nextTrackIndex, currentTime: 0, userPaused: false })
   }
 
   const onVolumeChange = (nextVolume: number) => {
     expandPlayer()
     setVolume(nextVolume)
     setIsMuted(nextVolume === 0)
+  }
+
+  const restoreTime = () => {
+    if (restoredTimeRef.current) return
+    const audio = audioRef.current
+    const stored = readStoredState()
+    if (!audio || !stored || stored.trackIndex !== trackIndex || !stored.currentTime) return
+
+    audio.currentTime = Math.max(0, stored.currentTime - 0.4)
+    restoredTimeRef.current = true
   }
 
   const VolumeIcon = isMuted || volume === 0 ? VolumeX : volume < 0.5 ? Volume1 : Volume2
@@ -166,6 +247,7 @@ export default function BackgroundMusicPlayer() {
         src={assetPath(tracks[trackIndex])}
         autoPlay
         preload="auto"
+        onLoadedMetadata={restoreTime}
         onCanPlay={() => setHasAudio(true)}
         onError={() => setHasAudio(false)}
         onEnded={playNextTrack}
