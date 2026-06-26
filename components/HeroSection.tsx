@@ -1,4 +1,4 @@
-use client'
+'use client'
 
 import CharacterStage from '@/components/CharacterStage'
 import { fadeUp, stagger } from '@/components/motion'
@@ -10,7 +10,7 @@ import { assetPath } from '@/lib/asset-path'
 import type { CharacterState } from '@/data/links'
 import type { PersonaMode } from '@/data/personas'
 import { motion, useReducedMotion } from 'framer-motion'
-import { CalendarCheck, Play, Sparkles } from 'lucide-react'
+import { CalendarCheck, Play } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const idleCharacterStates: CharacterState[] = [
