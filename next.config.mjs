@@ -1,8 +1,8 @@
-/** @type {import('next').NextConfig} */
+/* @type {import('next').NextConfig} */
+const useRepoBasePath = process.env.NEXT_PUBLIC_USE_REPO_BASE_PATH === 'true'
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
-const isGitHubPages = process.env.GITHUB_ACTIONS === 'true'
 const isUserSite = repoName?.endsWith('.github.io')
-const basePath = isGitHubPages && repoName && !isUserSite ? `/${repoName}` : ''
+const basePath = useRepoBasePath && repoName && !isUserSite ? `/${repoName}` : ''
 
 const nextConfig = {
   output: 'export',
