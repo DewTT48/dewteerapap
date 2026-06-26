@@ -1,6 +1,6 @@
 'use client'
 
-import { Music2, Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react'
+import { Pause, Play, Volume1, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { assetPath } from '@/lib/asset-path'
 
@@ -68,12 +68,18 @@ export default function BackgroundMusicPlayer() {
     }
 
     window.addEventListener('pointerdown', unlockAudio, { once: false })
+    window.addEventListener('mousemove', unlockAudio, { once: false, passive: true })
+    window.addEventListener('wheel', unlockAudio, { once: false, passive: true })
+    window.addEventListener('touchstart', unlockAudio, { once: false, passive: true })
     window.addEventListener('keydown', unlockAudio, { once: false })
     window.addEventListener('scroll', unlockAudio, { once: false, passive: true })
 
     return () => {
       clearCollapseTimer()
       window.removeEventListener('pointerdown', unlockAudio)
+      window.removeEventListener('mousemove', unlockAudio)
+      window.removeEventListener('wheel', unlockAudio)
+      window.removeEventListener('touchstart', unlockAudio)
       window.removeEventListener('keydown', unlockAudio)
       window.removeEventListener('scroll', unlockAudio)
     }
@@ -169,17 +175,18 @@ export default function BackgroundMusicPlayer() {
 
       <div
         className={`flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-white/92 p-1.5 text-slate-900 shadow-[0_10px_28px_rgba(31,41,55,0.14)] backdrop-blur-md transition-all duration-200 ${
-          isExpanded ? 'w-[188px]' : 'w-11'
+          isExpanded ? 'w-[214px]' : 'w-[74px]'
         }`}
       >
         <button
           type="button"
           onClick={toggleExpanded}
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-orange-500 text-white shadow-[0_7px_16px_rgba(249,115,22,0.24)] transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          className="flex h-8 w-[62px] shrink-0 items-center justify-center gap-1.5 rounded-full bg-orange-500 px-2 text-white shadow-[0_7px_16px_rgba(249,115,22,0.24)] transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300"
           aria-label={isExpanded ? 'ย่อแผงเพลง' : 'เปิดแผงเพลง'}
           title={isExpanded ? 'ย่อแผงเพลง' : needsGesture ? 'เปิดเพลง' : 'เพลงพื้นหลัง'}
         >
-          <Music2 className="h-4 w-4" />
+          <Volume2 className="h-3.5 w-3.5" />
+          <span className="text-[11px] font-bold leading-none">เพลง</span>
         </button>
 
         <div
