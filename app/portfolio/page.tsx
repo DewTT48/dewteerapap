@@ -1,6 +1,7 @@
 'use client'
 
 import Footer from '@/components/Footer'
+import LineBreakText from '@/components/LineBreakText'
 import Navbar from '@/components/Navbar'
 import { usePersona } from '@/components/PersonaProvider'
 import ThaiText from '@/components/ThaiText'
@@ -34,6 +35,23 @@ const focusAreas = [
   { label: 'AI', icon: Bot }
 ]
 
+const profileHeroLines = {
+  base: ['ออกแบบงาน HR', 'ยุคใหม่ ให้', 'Business, People และ AI', 'เดินไปด้วยกัน'],
+  lg: ['ออกแบบงาน HR', 'ยุคใหม่ ให้', 'Business, People และ AI', 'เดินไปด้วยกัน']
+}
+
+const sectionHeadings = {
+  businessSystem: ['HR ที่มองงานคน', 'เป็นระบบธุรกิจ'],
+  expertise: ['พื้นที่ที่ผม', 'ช่วยองค์กรได้'],
+  portfolio: ['ผลงานและแพลตฟอร์ม', 'ที่สะท้อนวิธีคิด HR x AI'],
+  caseStudies: ['ตัวอย่างงานที่เชื่อม HR, Business', 'และ AI เข้าด้วยกัน'],
+  services: ['รูปแบบงาน', 'ที่สามารถคุยต่อได้'],
+  finalCta: {
+    base: ['มาคุยกันครับ', 'เพื่อออกแบบวิธีทำงาน', 'ที่ทำให้ Business, People และ AI', 'เดินไปด้วยกันได้จริง'],
+    lg: ['มาคุยกันครับ เพื่อออกแบบวิธีทำงาน', 'ที่ทำให้ Business, People และ AI', 'เดินไปด้วยกันได้จริง']
+  }
+}
+
 export default function PortfolioPage() {
   const { persona } = usePersona()
   const isPro = persona === 'pro'
@@ -56,7 +74,7 @@ export default function PortfolioPage() {
           </Link>
           <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-orange">{profileHero.label}</p>
           <h1 className="mt-5 max-w-4xl break-words text-[2.5rem] font-black leading-[1.12] text-text sm:text-6xl sm:leading-[1.08] lg:text-[68px]">
-            <ThaiText text={profileHero.title} />
+            <LineBreakText lines={profileHeroLines} />
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-muted"><ThaiText text={profileHero.intro} /></p>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-muted"><ThaiText text={profileHero.belief} /></p>
@@ -108,7 +126,7 @@ export default function PortfolioPage() {
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">About Me</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-text"><ThaiText text="HR ที่มองงานคนเป็นระบบธุรกิจ" /></h2>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-text"><LineBreakText lines={sectionHeadings.businessSystem} /></h2>
           </div>
           <div className="space-y-5 lg:col-span-8">
             {aboutProfile.map((item) => (
@@ -136,7 +154,7 @@ export default function PortfolioPage() {
         <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Expertise</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-text"><ThaiText text="พื้นที่ที่ผมช่วยองค์กรได้" /></h2>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-text"><LineBreakText lines={sectionHeadings.expertise} /></h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-muted">
             <ThaiText text="ผมทำงานอยู่ตรงกลางระหว่าง HR Strategy, People System และการใช้ AI อย่างมีมนุษย์เป็นผู้กำกับ" />
@@ -155,7 +173,7 @@ export default function PortfolioPage() {
 
       <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Portfolio</p>
-        <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><ThaiText text="ผลงานและแพลตฟอร์มที่สะท้อนวิธีคิด HR x AI" /></h2>
+        <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><LineBreakText lines={sectionHeadings.portfolio} /></h2>
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
           {portfolioItems.map((item, index) => (
             <article key={item.title} className="rounded-[28px] border border-border bg-surface p-6 shadow-soft">
@@ -177,7 +195,7 @@ export default function PortfolioPage() {
       <section id="case-studies" className="scroll-mt-12 mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div className="mb-10">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Selected Case Studies</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><ThaiText text="ตัวอย่างงานที่เชื่อม HR, Business และ AI เข้าด้วยกัน" /></h2>
+          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><LineBreakText lines={sectionHeadings.caseStudies} /></h2>
         </div>
         <div className="grid gap-4">
           {caseStudies.map((item) => (
@@ -195,7 +213,7 @@ export default function PortfolioPage() {
       <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div className="rounded-[32px] border border-border bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-soft)_54%,var(--bg)_100%)] p-7 shadow-soft lg:p-10">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Services</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><ThaiText text="รูปแบบงานที่สามารถคุยต่อได้" /></h2>
+          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><LineBreakText lines={sectionHeadings.services} /></h2>
           <div className="mt-9 grid gap-4 lg:grid-cols-3">
             {profileServices.map((item) => (
               <article key={item.title} className="rounded-[24px] bg-surface/85 p-6 shadow-soft">
@@ -207,7 +225,7 @@ export default function PortfolioPage() {
           </div>
           <div className="mt-10 flex flex-col justify-between gap-5 rounded-[28px] bg-surface p-6 shadow-soft lg:flex-row lg:items-center">
             <div>
-              <h3 className="text-2xl font-black text-text"><ThaiText text="มาคุยกันครับ เพื่อออกแบบวิธีทำงานที่ทำให้ Business, People และ AI เดินไปด้วยกันได้จริง" /></h3>
+              <h3 className="text-2xl font-black leading-tight text-text"><LineBreakText lines={sectionHeadings.finalCta} /></h3>
               <p className="mt-3 text-base leading-7 text-muted"><ThaiText text="เหมาะสำหรับองค์กรที่อยากให้ HR เชื่อมกับธุรกิจมากขึ้น เริ่มใช้ AI อย่างเป็นระบบ หรือสร้างทีมที่เข้าใจกันและทำงานร่วมกันได้ดีขึ้น" /></p>
             </div>
             <a

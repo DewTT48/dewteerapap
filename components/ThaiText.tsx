@@ -1,9 +1,24 @@
 const defaultProtectedTerms = [
+  'HR x AI',
   'Human in the Loop',
   'HR Transformation',
   'HR Workflow',
+  'workflow',
   'AI Adoption',
+  'AI Workflow',
+  'AI Assistant',
+  'AI Agent',
+  'AI for HR',
   'Generative AI',
+  'Prompt Engineering',
+  'Prompt Design',
+  'Workflow Design',
+  'People Development',
+  'Performance Management',
+  'Workforce Planning',
+  'Career Development',
+  'Functional Competency',
+  'Organization Development',
   'Case Studies'
 ]
 

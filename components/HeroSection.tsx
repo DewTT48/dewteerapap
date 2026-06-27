@@ -79,7 +79,7 @@ export default function HeroSection({ persona, onPersonaChange }: HeroSectionPro
             className="mt-8 max-w-[620px] text-5xl font-black leading-[1.06] text-text transition-colors duration-300 sm:text-6xl lg:text-[56px]"
           >
             {currentPersona.headline.map((line) => (
-              <span key={`${persona}-${line.text}`} className={`block sm:whitespace-nowrap ${currentPersona.headlineClassName} transition-colors duration-300 ${line.className}`}>
+              <span key={`${persona}-${line.text}`} className={`block ${currentPersona.headlineClassName} transition-colors duration-300 ${line.className}`}>
                 <ThaiText text={line.text} />
               </span>
             ))}

@@ -67,12 +67,12 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
     label: 'Professional',
     shortLabel: 'Pro',
     badge: 'Corporate HR x AI Adoption Partner',
-    headlineClassName: 'text-[clamp(2.25rem,3.6vw,3.15rem)]',
+    headlineClassName: 'text-[clamp(2.25rem,3.35vw,3rem)]',
     headline: [
-      { text: 'ออกแบบ HR Workflow', className: 'text-[#14213d]' },
+      { text: 'ออกแบบ', className: 'text-[#14213d]' },
+      { text: 'HR Workflow', className: 'text-[#14213d]' },
       { text: 'และ AI Adoption', className: 'mt-3 text-orange' },
-      { text: 'ให้องค์กร', className: 'text-olive' },
-      { text: 'ใช้ได้จริง', className: 'text-text' }
+      { text: 'ให้องค์กรใช้ได้จริง', className: 'text-text' }
     ],
     description:
       'ผมช่วยผู้บริหารและทีม HR วางระบบงาน คน และ AI Adoption ให้เชื่อมกับเป้าหมายธุรกิจ ใช้งานได้จริง วัดผลได้ และขยายผลอย่างรับผิดชอบ',

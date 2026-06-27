@@ -8,6 +8,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { CalendarDays, Mail } from 'lucide-react'
 import Image from 'next/image'
 import ThaiText from '@/components/ThaiText'
+import LineBreakText from '@/components/LineBreakText'
 
 type ContactSectionProps = {
   persona: PersonaMode
@@ -19,8 +20,8 @@ export default function ContactSection({ persona }: ContactSectionProps) {
   const contactImage = isPro ? '/characters/pro/dew-pro-laptop-sit.png' : '/characters/dew-laptop-sit.png'
   const eyebrow = isPro ? 'Executive Consultation' : 'Work with Dew'
   const headline = isPro
-    ? 'อยากให้ HR Workflow และ AI Adoption ใช้งานได้จริงในองค์กร?'
-    : 'อยากให้ทีม HR ของคุณทำงานง่ายขึ้นด้วย AI และระบบที่ใช่?'
+    ? ['อยากให้ HR Workflow', 'และ AI Adoption', 'ใช้งานได้จริงในองค์กร?']
+    : ['อยากให้ทีม HR ของคุณ', 'ทำงานง่ายขึ้นด้วย AI', 'และระบบที่ใช่?']
   const description = isPro
     ? 'มาคุยกันครับ เพื่อออกแบบระบบงาน คน และ AI ที่เชื่อมกับเป้าหมายธุรกิจและขยายผลได้อย่างรับผิดชอบ'
     : 'มาคุยกันครับ ผมยินดีช่วยออกแบบโซลูชันที่เหมาะกับองค์กรของคุณ'
@@ -36,7 +37,7 @@ export default function ContactSection({ persona }: ContactSectionProps) {
         <motion.div variants={fadeUp} className="relative z-10 max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">{eyebrow}</p>
           <h2 className="mt-5 text-4xl font-black leading-tight text-text sm:text-5xl">
-            <ThaiText text={headline} />
+            <LineBreakText lines={headline} />
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted">
             <ThaiText text={description} />
