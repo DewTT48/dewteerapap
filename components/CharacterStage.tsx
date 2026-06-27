@@ -24,7 +24,7 @@ export default function CharacterStage({ state, persona = 'plus' }: CharacterSta
     >
       <motion.div
         aria-hidden="true"
-        className="absolute inset-[11%] rounded-full bg-[radial-gradient(circle,rgba(255,247,239,0.96)_0%,rgba(255,247,239,0.45)_52%,rgba(255,247,239,0)_70%)]"
+        className="absolute inset-[11%] rounded-full bg-[radial-gradient(circle,var(--surface-soft)_0%,color-mix(in_srgb,var(--surface-soft)_48%,transparent)_52%,transparent_70%)]"
         animate={reduceMotion ? undefined : { scale: [1, 1.035, 1] }}
         transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />

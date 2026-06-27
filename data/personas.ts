@@ -44,7 +44,23 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
       '--olive': '#6c7550',
       '--olive-soft': '#8d9771',
       '--border': '#ece8e1',
-      '--shadow-soft': '0 18px 50px rgba(30, 36, 48, 0.08)'
+      '--shadow-soft': '0 18px 50px rgba(30, 36, 48, 0.08)',
+      '--shadow-lift': '0 22px 65px rgba(30, 36, 48, 0.12)',
+      '--accent-shadow': 'rgba(244, 123, 32, 0.28)',
+      '--icon-orange-bg': '#fff1e5',
+      '--icon-orange-text': '#f47b20',
+      '--icon-olive-bg': '#f0f3e7',
+      '--icon-olive-text': '#6c7550',
+      '--icon-blue-bg': '#eef6f4',
+      '--icon-blue-text': '#4e7b76',
+      '--icon-rose-bg': '#fff0ef',
+      '--icon-rose-text': '#d95c50',
+      '--icon-neutral-bg': '#f4f1ec',
+      '--icon-neutral-text': '#5c5145',
+      '--icon-purple-bg': '#8b5cf6',
+      '--icon-yellow-bg': '#fbbf24',
+      '--icon-rose-solid': '#f43f5e',
+      '--portfolio-proof': '#f4f1ec'
     } as CSSProperties
   },
   pro: {
@@ -72,7 +88,23 @@ export const personaConfigs: Record<PersonaMode, PersonaConfig> = {
       '--olive': '#334155',
       '--olive-soft': '#64748b',
       '--border': '#dfe5ec',
-      '--shadow-soft': '0 18px 54px rgba(15, 23, 42, 0.1)'
+      '--shadow-soft': '0 18px 54px rgba(15, 23, 42, 0.1)',
+      '--shadow-lift': '0 24px 68px rgba(15, 23, 42, 0.16)',
+      '--accent-shadow': 'rgba(184, 135, 63, 0.25)',
+      '--icon-orange-bg': '#f6efe3',
+      '--icon-orange-text': '#9f7334',
+      '--icon-olive-bg': '#e9edf2',
+      '--icon-olive-text': '#334155',
+      '--icon-blue-bg': '#e8eef5',
+      '--icon-blue-text': '#315475',
+      '--icon-rose-bg': '#f1ece8',
+      '--icon-rose-text': '#7a5d52',
+      '--icon-neutral-bg': '#edf0f4',
+      '--icon-neutral-text': '#475569',
+      '--icon-purple-bg': '#455a78',
+      '--icon-yellow-bg': '#b8873f',
+      '--icon-rose-solid': '#7a5d52',
+      '--portfolio-proof': '#edf0f4'
     } as CSSProperties
   }
 }

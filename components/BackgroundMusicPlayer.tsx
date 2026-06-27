@@ -256,14 +256,14 @@ export default function BackgroundMusicPlayer() {
       />
 
       <div
-        className={`flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-white/92 p-1.5 text-slate-900 shadow-[0_10px_28px_rgba(31,41,55,0.14)] backdrop-blur-md transition-all duration-200 ${
+        className={`flex items-center gap-1.5 rounded-full border border-border bg-surface/92 p-1.5 text-text shadow-soft backdrop-blur-md transition-all duration-200 ${
           isExpanded ? 'w-[188px]' : 'w-11'
         }`}
       >
         <button
           type="button"
           onClick={toggleExpanded}
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange-200 bg-white text-slate-950 shadow-[0_7px_16px_rgba(249,115,22,0.18)] transition hover:border-orange-300 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange/30 bg-surface text-text shadow-soft transition hover:bg-orange/10 focus:outline-none focus:ring-2 focus:ring-orange/30"
           aria-label={isExpanded ? 'ย่อแผงเพลง' : 'เปิดแผงเพลง'}
           title={isExpanded ? 'ย่อแผงเพลง' : needsGesture ? 'เปิดเพลง' : 'เพลงพื้นหลัง'}
         >
@@ -279,17 +279,17 @@ export default function BackgroundMusicPlayer() {
           <button
             type="button"
             onClick={togglePlay}
-            className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange-100 bg-orange-50 text-orange-600 transition hover:bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-200"
+            className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange/20 bg-orange/10 text-orange transition hover:bg-orange/15 focus:outline-none focus:ring-2 focus:ring-orange/25"
             aria-label={isPlaying ? 'Pause background music' : 'Play background music'}
             title={isPlaying ? 'หยุดเพลง' : 'เล่นเพลง'}
           >
-            {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="ml-0.5 h-3.5 w-3.5 fill-orange-600" />}
+            {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="ml-0.5 h-3.5 w-3.5 fill-current" />}
           </button>
 
           <button
             type="button"
             onClick={toggleMute}
-            className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-stone-200 bg-white text-slate-700 transition hover:border-orange-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-200"
+            className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border bg-surface text-muted transition hover:border-orange/30 hover:text-orange focus:outline-none focus:ring-2 focus:ring-orange/25"
             aria-label={isMuted ? 'Unmute background music' : 'Mute background music'}
             title={isMuted ? 'เปิดเสียง' : 'ปิดเสียง'}
           >
@@ -305,7 +305,7 @@ export default function BackgroundMusicPlayer() {
               step="0.05"
               value={isMuted ? 0 : volume}
               onChange={(event) => onVolumeChange(Number(event.target.value))}
-              className="h-1.5 w-16 cursor-pointer accent-orange-500"
+              className="h-1.5 w-16 cursor-pointer accent-[var(--orange)]"
               aria-label="ปรับระดับเสียงเพลง"
               tabIndex={isExpanded ? 0 : -1}
             />

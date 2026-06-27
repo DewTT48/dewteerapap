@@ -5,11 +5,11 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
 const accentStyles: Record<PlatformAccent, string> = {
-  orange: 'bg-[#FFF1E5] text-orange ring-orange/20',
-  olive: 'bg-[#F0F3E7] text-olive ring-olive/20',
-  blue: 'bg-[#EEF6F4] text-[#4E7B76] ring-[#4E7B76]/15',
-  rose: 'bg-[#FFF0EF] text-[#D95C50] ring-[#D95C50]/15',
-  neutral: 'bg-[#F4F1EC] text-[#5C5145] ring-[#5C5145]/12'
+  orange: 'bg-[var(--icon-orange-bg)] text-[var(--icon-orange-text)] ring-[var(--icon-orange-text)]/20',
+  olive: 'bg-[var(--icon-olive-bg)] text-[var(--icon-olive-text)] ring-[var(--icon-olive-text)]/20',
+  blue: 'bg-[var(--icon-blue-bg)] text-[var(--icon-blue-text)] ring-[var(--icon-blue-text)]/15',
+  rose: 'bg-[var(--icon-rose-bg)] text-[var(--icon-rose-text)] ring-[var(--icon-rose-text)]/15',
+  neutral: 'bg-[var(--icon-neutral-bg)] text-[var(--icon-neutral-text)] ring-[var(--icon-neutral-text)]/15'
 }
 
 type ProductCardProps = {

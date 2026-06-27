@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Noto_Sans_Thai } from 'next/font/google'
 import './globals.css'
 import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer'
+import PersonaProvider from '@/components/PersonaProvider'
 
 const notoSansThai = Noto_Sans_Thai({
   subsets: ['thai'],
@@ -24,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="th" className={notoSansThai.variable}>
       <body className="font-sans antialiased">
-        {children}
-        <BackgroundMusicPlayer />
+        <PersonaProvider>
+          {children}
+          <BackgroundMusicPlayer />
+        </PersonaProvider>
       </body>
     </html>
   )

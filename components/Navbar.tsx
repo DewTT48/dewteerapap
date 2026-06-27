@@ -48,7 +48,7 @@ export default function Navbar() {
             href={emailUrl('ติดต่อคุยงาน')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-orange px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(244,123,32,0.28)] transition hover:-translate-y-0.5 hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/35"
+            className="inline-flex items-center gap-2 rounded-full bg-orange px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_32px_var(--accent-shadow)] transition hover:-translate-y-0.5 hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/35"
           >
             <Send size={17} />
             <span className="hidden sm:inline">ติดต่อคุยงาน</span>

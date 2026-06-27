@@ -6,9 +6,9 @@ import { motion } from 'framer-motion'
 const iconStyles: Record<Service['accent'], string> = {
   orange: 'bg-orange text-white',
   olive: 'bg-olive text-white',
-  purple: 'bg-violet-500 text-white',
-  yellow: 'bg-amber-400 text-text',
-  rose: 'bg-rose-500 text-white'
+  purple: 'bg-[var(--icon-purple-bg)] text-white',
+  yellow: 'bg-[var(--icon-yellow-bg)] text-white',
+  rose: 'bg-[var(--icon-rose-solid)] text-white'
 }
 
 export default function ServiceCard({ service }: { service: Service }) {

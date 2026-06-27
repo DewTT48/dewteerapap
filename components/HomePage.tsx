@@ -6,19 +6,13 @@ import HeroSection from '@/components/HeroSection'
 import Navbar from '@/components/Navbar'
 import ServicesSection from '@/components/ServicesSection'
 import StatsStrip from '@/components/StatsStrip'
-import { personaConfigs, type PersonaMode } from '@/data/personas'
-import { useState } from 'react'
+import { usePersona } from '@/components/PersonaProvider'
 
 export default function HomePage() {
-  const [persona, setPersona] = useState<PersonaMode>('plus')
-  const currentPersona = personaConfigs[persona]
+  const { persona, setPersona } = usePersona()
 
   return (
-    <main
-      data-persona={persona}
-      style={currentPersona.cssVars}
-      className="min-h-screen overflow-hidden bg-bg transition-colors duration-300"
-    >
+    <main className="min-h-screen overflow-hidden bg-bg transition-colors duration-300">
       <Navbar />
       <HeroSection persona={persona} onPersonaChange={setPersona} />
       <StatsStrip />

@@ -22,7 +22,7 @@ const config: Config = {
       },
       boxShadow: {
         soft: 'var(--shadow-soft)',
-        lift: '0 22px 65px rgba(30, 36, 48, 0.12)'
+        lift: 'var(--shadow-lift)'
       },
       fontFamily: {
         sans: [
