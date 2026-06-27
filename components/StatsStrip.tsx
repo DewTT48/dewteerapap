@@ -3,6 +3,7 @@
 import { fadeUp, stagger } from '@/components/motion'
 import { stats } from '@/data/stats'
 import { motion } from 'framer-motion'
+import ThaiText from '@/components/ThaiText'
 
 export default function StatsStrip() {
   return (
@@ -17,7 +18,7 @@ export default function StatsStrip() {
         {stats.map((stat) => (
           <motion.div key={stat.label} variants={fadeUp} className="px-3 py-4">
             <p className="text-2xl font-black text-text">{stat.value}</p>
-            <p className="mt-1 text-sm leading-6 text-muted">{stat.label}</p>
+            <p className="mt-1 text-sm leading-6 text-muted"><ThaiText text={stat.label} /></p>
           </motion.div>
         ))}
       </motion.div>

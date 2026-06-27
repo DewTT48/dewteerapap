@@ -3,6 +3,7 @@
 import type { CharacterState, PlatformAccent, PlatformLink } from '@/data/links'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
+import ThaiText from '@/components/ThaiText'
 
 const accentStyles: Record<PlatformAccent, string> = {
   orange: 'bg-[var(--icon-orange-bg)] text-[var(--icon-orange-text)] ring-[var(--icon-orange-text)]/20',
@@ -59,8 +60,8 @@ export default function ProductCard({ item, className = '', onHover, index }: Pr
           <ArrowUpRight size={16} strokeWidth={1.8} />
         </span>
       </div>
-      <h3 className="text-sm font-extrabold text-text">{item.name}</h3>
-      <p className="mt-1.5 text-xs leading-5 text-muted">{item.description}</p>
+      <h3 className="text-sm font-extrabold text-text"><ThaiText text={item.name} /></h3>
+      <p className="mt-1.5 text-xs leading-5 text-muted"><ThaiText text={item.description} /></p>
     </motion.a>
   )
 }

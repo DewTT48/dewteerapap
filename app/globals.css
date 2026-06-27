@@ -38,6 +38,23 @@ a {
   text-decoration: none;
 }
 
+.thai-text {
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: auto;
+  hyphens: none;
+}
+
+.thai-text-safe {
+  overflow-wrap: anywhere;
+}
+
+@supports (word-break: auto-phrase) {
+  .thai-text {
+    word-break: auto-phrase;
+  }
+}
+
 ::selection {
   background: rgba(244, 123, 32, 0.18);
 }

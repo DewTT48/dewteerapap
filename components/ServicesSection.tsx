@@ -4,6 +4,7 @@ import { fadeUp, stagger } from '@/components/motion'
 import ServiceCard from '@/components/ServiceCard'
 import { services } from '@/data/services'
 import { motion } from 'framer-motion'
+import ThaiText from '@/components/ThaiText'
 
 export default function ServicesSection() {
   return (
@@ -19,10 +20,10 @@ export default function ServicesSection() {
         </motion.p>
         <motion.div variants={fadeUp} className="mt-4 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <h2 className="max-w-2xl text-4xl font-black leading-tight text-text sm:text-5xl">
-            ผมช่วยอะไรองค์กรคุณได้บ้าง
+            <ThaiText text="ผมช่วยอะไรองค์กรคุณได้บ้าง" />
           </h2>
           <p className="max-w-xl text-base leading-8 text-muted">
-            จากกลยุทธ์ HR สู่ workflow ที่ใช้ได้จริง พร้อมเครื่องมือ AI ที่ทีมเข้าใจ ตรวจสอบได้ และนำไปต่อยอดได้
+            <ThaiText text="จากกลยุทธ์ HR สู่ workflow ที่ใช้ได้จริง พร้อมเครื่องมือ AI ที่ทีมเข้าใจ ตรวจสอบได้ และนำไปต่อยอดได้" />
           </p>
         </motion.div>
 

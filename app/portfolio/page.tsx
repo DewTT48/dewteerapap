@@ -3,6 +3,7 @@
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import { usePersona } from '@/components/PersonaProvider'
+import ThaiText from '@/components/ThaiText'
 import {
   aboutProfile,
   beliefs,
@@ -55,10 +56,10 @@ export default function PortfolioPage() {
           </Link>
           <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-orange">{profileHero.label}</p>
           <h1 className="mt-5 max-w-4xl break-words text-[2.5rem] font-black leading-[1.12] text-text sm:text-6xl sm:leading-[1.08] lg:text-[68px]">
-            {profileHero.title}
+            <ThaiText text={profileHero.title} />
           </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted">{profileHero.intro}</p>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">{profileHero.belief}</p>
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted"><ThaiText text={profileHero.intro} /></p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted"><ThaiText text={profileHero.belief} /></p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={emailUrl('ขอ Portfolio / นัดคุยกับ Dew')}
@@ -107,13 +108,11 @@ export default function PortfolioPage() {
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">About Me</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-text">HR ที่มองงานคนเป็นระบบธุรกิจ</h2>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-text"><ThaiText text="HR ที่มองงานคนเป็นระบบธุรกิจ" /></h2>
           </div>
           <div className="space-y-5 lg:col-span-8">
             {aboutProfile.map((item) => (
-              <p key={item} className="text-lg leading-8 text-muted">
-                {item}
-              </p>
+              <p key={item} className="text-lg leading-8 text-muted"><ThaiText text={item} /></p>
             ))}
           </div>
         </div>
@@ -126,7 +125,7 @@ export default function PortfolioPage() {
             {beliefs.map((item) => (
               <div key={item} className="rounded-3xl bg-surface-soft p-6">
                 <CheckCircle2 className="text-olive" size={24} />
-                <p className="mt-4 text-base leading-7 text-text">{item}</p>
+                <p className="mt-4 text-base leading-7 text-text"><ThaiText text={item} /></p>
               </div>
             ))}
           </div>
@@ -137,18 +136,18 @@ export default function PortfolioPage() {
         <div className="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Expertise</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-text">พื้นที่ที่ผมช่วยองค์กรได้</h2>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-text"><ThaiText text="พื้นที่ที่ผมช่วยองค์กรได้" /></h2>
           </div>
           <p className="max-w-xl text-base leading-8 text-muted">
-            ผมทำงานอยู่ตรงกลางระหว่าง HR Strategy, People System และการใช้ AI อย่างมีมนุษย์เป็นผู้กำกับ
+            <ThaiText text="ผมทำงานอยู่ตรงกลางระหว่าง HR Strategy, People System และการใช้ AI อย่างมีมนุษย์เป็นผู้กำกับ" />
           </p>
         </div>
         <div className="grid gap-4 lg:grid-cols-3">
           {expertise.map((item) => (
             <article key={item.title} className="rounded-[28px] border border-border bg-surface p-6 shadow-soft">
               <Sparkles className="text-orange" size={26} />
-              <h3 className="mt-5 text-xl font-black text-text">{item.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-muted">{item.body}</p>
+              <h3 className="mt-5 text-xl font-black text-text"><ThaiText text={item.title} /></h3>
+              <p className="mt-4 text-sm leading-7 text-muted"><ThaiText text={item.body} /></p>
             </article>
           ))}
         </div>
@@ -156,7 +155,7 @@ export default function PortfolioPage() {
 
       <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Portfolio</p>
-        <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text">ผลงานและแพลตฟอร์มที่สะท้อนวิธีคิด HR x AI</h2>
+        <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><ThaiText text="ผลงานและแพลตฟอร์มที่สะท้อนวิธีคิด HR x AI" /></h2>
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
           {portfolioItems.map((item, index) => (
             <article key={item.title} className="rounded-[28px] border border-border bg-surface p-6 shadow-soft">
@@ -165,9 +164,9 @@ export default function PortfolioPage() {
                   {index + 1}
                 </span>
                 <div>
-                  <h3 className="text-xl font-black text-text">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted">{item.body}</p>
-                  <p className="mt-4 rounded-2xl bg-[var(--portfolio-proof)] px-4 py-3 text-sm font-semibold leading-6 text-text">{item.proof}</p>
+                  <h3 className="text-xl font-black text-text"><ThaiText text={item.title} /></h3>
+                  <p className="mt-3 text-sm leading-7 text-muted"><ThaiText text={item.body} /></p>
+                  <p className="mt-4 rounded-2xl bg-[var(--portfolio-proof)] px-4 py-3 text-sm font-semibold leading-6 text-text"><ThaiText text={item.proof} /></p>
                 </div>
               </div>
             </article>
@@ -178,16 +177,16 @@ export default function PortfolioPage() {
       <section id="case-studies" className="scroll-mt-12 mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div className="mb-10">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Selected Case Studies</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text">ตัวอย่างงานที่เชื่อม HR, Business และ AI เข้าด้วยกัน</h2>
+          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><ThaiText text="ตัวอย่างงานที่เชื่อม HR, Business และ AI เข้าด้วยกัน" /></h2>
         </div>
         <div className="grid gap-4">
           {caseStudies.map((item) => (
             <article key={item.title} className="grid gap-4 rounded-[28px] border border-border bg-surface p-6 shadow-soft lg:grid-cols-12 lg:p-7">
               <div className="lg:col-span-3">
                 <p className="text-sm font-bold text-orange">{item.client}</p>
-                <h3 className="mt-2 text-xl font-black leading-tight text-text">{item.title}</h3>
+                <h3 className="mt-2 text-xl font-black leading-tight text-text"><ThaiText text={item.title} /></h3>
               </div>
-              <p className="text-base leading-8 text-muted lg:col-span-9">{item.body}</p>
+              <p className="text-base leading-8 text-muted lg:col-span-9"><ThaiText text={item.body} /></p>
             </article>
           ))}
         </div>
@@ -196,20 +195,20 @@ export default function PortfolioPage() {
       <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div className="rounded-[32px] border border-border bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-soft)_54%,var(--bg)_100%)] p-7 shadow-soft lg:p-10">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">Services</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text">รูปแบบงานที่สามารถคุยต่อได้</h2>
+          <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-text"><ThaiText text="รูปแบบงานที่สามารถคุยต่อได้" /></h2>
           <div className="mt-9 grid gap-4 lg:grid-cols-3">
             {profileServices.map((item) => (
               <article key={item.title} className="rounded-[24px] bg-surface/85 p-6 shadow-soft">
                 <HeartHandshake className="text-olive" size={25} />
-                <h3 className="mt-5 text-lg font-black text-text">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{item.body}</p>
+                <h3 className="mt-5 text-lg font-black text-text"><ThaiText text={item.title} /></h3>
+                <p className="mt-3 text-sm leading-7 text-muted"><ThaiText text={item.body} /></p>
               </article>
             ))}
           </div>
           <div className="mt-10 flex flex-col justify-between gap-5 rounded-[28px] bg-surface p-6 shadow-soft lg:flex-row lg:items-center">
             <div>
-              <h3 className="text-2xl font-black text-text">มาคุยกันครับ เพื่อออกแบบวิธีทำงานที่ทำให้ Business, People และ AI เดินไปด้วยกันได้จริง</h3>
-              <p className="mt-3 text-base leading-7 text-muted">เหมาะสำหรับองค์กรที่อยากให้ HR เชื่อมกับธุรกิจมากขึ้น เริ่มใช้ AI อย่างเป็นระบบ หรือสร้างทีมที่เข้าใจกันและทำงานร่วมกันได้ดีขึ้น</p>
+              <h3 className="text-2xl font-black text-text"><ThaiText text="มาคุยกันครับ เพื่อออกแบบวิธีทำงานที่ทำให้ Business, People และ AI เดินไปด้วยกันได้จริง" /></h3>
+              <p className="mt-3 text-base leading-7 text-muted"><ThaiText text="เหมาะสำหรับองค์กรที่อยากให้ HR เชื่อมกับธุรกิจมากขึ้น เริ่มใช้ AI อย่างเป็นระบบ หรือสร้างทีมที่เข้าใจกันและทำงานร่วมกันได้ดีขึ้น" /></p>
             </div>
             <a
               href={emailUrl('ขอคุยงาน HR x AI กับ Dew')}

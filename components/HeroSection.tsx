@@ -4,6 +4,7 @@ import CharacterStage from '@/components/CharacterStage'
 import { fadeUp, stagger } from '@/components/motion'
 import OrbitLinks from '@/components/OrbitLinks'
 import PersonaToggle from '@/components/PersonaToggle'
+import ThaiText from '@/components/ThaiText'
 import { emailUrl } from '@/data/links'
 import { personaConfigs } from '@/data/personas'
 import type { CharacterState } from '@/data/links'
@@ -78,14 +79,14 @@ export default function HeroSection({ persona, onPersonaChange }: HeroSectionPro
             className="mt-8 max-w-[620px] text-5xl font-black leading-[1.06] text-text transition-colors duration-300 sm:text-6xl lg:text-[56px]"
           >
             {currentPersona.headline.map((line) => (
-              <span key={`${persona}-${line.text}`} className={`block whitespace-nowrap ${currentPersona.headlineClassName} transition-colors duration-300 ${line.className}`}>
-                {line.text}
+              <span key={`${persona}-${line.text}`} className={`block sm:whitespace-nowrap ${currentPersona.headlineClassName} transition-colors duration-300 ${line.className}`}>
+                <ThaiText text={line.text} />
               </span>
             ))}
           </motion.h1>
 
           <motion.p variants={fadeUp} className="mt-7 max-w-[34rem] text-lg leading-8 text-muted transition-colors duration-300">
-            {currentPersona.description}
+            <ThaiText text={currentPersona.description} />
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">

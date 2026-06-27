@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Facebook, Mail, Send, Youtube } from 'lucide-react'
 import { emailUrl, facebookPageUrl } from '@/data/links'
 import Link from 'next/link'
+import ThaiText from '@/components/ThaiText'
 
 const socialLinks = [
   { label: 'Facebook', href: facebookPageUrl, icon: Facebook },
@@ -21,8 +22,8 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <Link href="/" className="group inline-flex flex-col" aria-label="Dew Teerapap home">
           <span className="font-serif text-4xl font-semibold italic leading-none text-orange">Dew.</span>
-          <span className="mt-1 text-sm font-semibold text-text">ธีรภาพ ตระการผล (พี่ดิว)</span>
-          <span className="text-xs text-muted">HR ข้างบ้าน</span>
+          <span className="mt-1 text-sm font-semibold text-text"><ThaiText text="ธีรภาพ ตระการผล (พี่ดิว)" /></span>
+          <span className="text-xs text-muted"><ThaiText text="HR ข้างบ้าน" /></span>
         </Link>
 
         <div className="flex items-center gap-3">

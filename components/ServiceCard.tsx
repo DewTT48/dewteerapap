@@ -2,6 +2,7 @@
 
 import type { Service } from '@/data/services'
 import { motion } from 'framer-motion'
+import ThaiText from '@/components/ThaiText'
 
 const iconStyles: Record<Service['accent'], string> = {
   orange: 'bg-orange text-white',
@@ -25,8 +26,8 @@ export default function ServiceCard({ service }: { service: Service }) {
       <div className={`grid size-14 place-items-center rounded-2xl ${iconStyles[service.accent]}`}>
         <Icon size={26} />
       </div>
-      <h3 className="mt-6 text-lg font-extrabold text-text">{service.title}</h3>
-      <p className="mt-3 text-sm leading-7 text-muted">{service.description}</p>
+      <h3 className="mt-6 text-lg font-extrabold text-text"><ThaiText text={service.title} /></h3>
+      <p className="mt-3 text-sm leading-7 text-muted"><ThaiText text={service.description} /></p>
     </motion.article>
   )
 }

@@ -7,6 +7,7 @@ import { assetPath } from '@/lib/asset-path'
 import { motion, useReducedMotion } from 'framer-motion'
 import { CalendarDays, Mail } from 'lucide-react'
 import Image from 'next/image'
+import ThaiText from '@/components/ThaiText'
 
 type ContactSectionProps = {
   persona: PersonaMode
@@ -35,10 +36,10 @@ export default function ContactSection({ persona }: ContactSectionProps) {
         <motion.div variants={fadeUp} className="relative z-10 max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange">{eyebrow}</p>
           <h2 className="mt-5 text-4xl font-black leading-tight text-text sm:text-5xl">
-            {headline}
+            <ThaiText text={headline} />
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted">
-            {description}
+            <ThaiText text={description} />
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
